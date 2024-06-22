@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
+use App\Http\Controllers\Api\V1\TicketController;
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+// http://localhost:8000/api/
+// univseral resource locator
+// tickets
+// users
 
-Route::middleware('auth:sanctum')->group(function (Router $router){
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
 
-    Route::post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('tickets', TicketController::class);
+    Route::apiResource('users', UserController::class);
 });
