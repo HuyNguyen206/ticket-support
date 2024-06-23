@@ -14,6 +14,8 @@ class UserResource extends BaseResource
       public function toArray(Request $request): array
       {
           return parent::toArray($request) +
-              $this->only(['name', 'email']);
+              $this->only(['name', 'email']) + [
+                  $this->mergeWhen($request->routeIs('users.*'), $this->only(['email_verified_at', 'remember_token']))
+              ];
       }
 }
