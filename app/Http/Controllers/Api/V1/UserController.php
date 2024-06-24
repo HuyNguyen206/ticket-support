@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\UserResource;
 use App\Models\User;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UserController extends ApiController
 {
     use ApiResponse;
     /**
@@ -16,7 +15,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        return $this->success(data: UserResource::collection(User::paginate())->resource);
+        $queryBuilder = User::query();
+
+        if ($this->include('tickets')) {
+            $queryBuilder->with('tickets');
+        }
+
+        return $this->success(data: UserResource::collection($queryBuilder->paginate())->resource);
     }
 
 
@@ -25,6 +30,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        if ($this->include('tickets')) {
+            $user->load('tickets');
+        }
+
         return $this->success(data: new UserResource($user));
     }
 

@@ -24,4 +24,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('tickets', TicketController::class);
     Route::apiResource('users', UserController::class);
+    Route::get('users/{user}/tickets', [\App\Http\Controllers\Api\V1\UserTicketsController::class, 'index']);
+    Route::apiResource('users.tickets', \App\Http\Controllers\Api\V1\UserTicketsController::class)->shallow();
 });

@@ -16,6 +16,6 @@ class UserResource extends BaseResource
           return parent::toArray($request) +
               $this->only(['name', 'email']) + [
                   $this->mergeWhen($request->routeIs('users.*'), $this->only(['email_verified_at', 'remember_token']))
-              ];
+              ] + [ 'tickets' => TicketResource::collection($this->whenLoaded('tickets'))];
       }
 }

@@ -23,7 +23,7 @@ class TicketResource extends BaseResource
                 'links' => ['self' => route('tickets.show', $this->id)]
             ] +
             [
-                'relationships' => ['user' => new UserResource($this->user)]
+                'relationships' => ['user' => new UserResource($this->whenLoaded('user'))]
             ];
     }
 }
