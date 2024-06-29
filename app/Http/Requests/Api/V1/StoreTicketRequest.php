@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Api\V1;
 
+use App\Enum\TicketStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreTicketRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class StoreTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +23,23 @@ class StoreTicketRequest extends FormRequest
      */
     public function rules(): array
     {
+        $data = [
+            'data.attributes.title' => 'required|string',
+            'data.attributes.description' => 'required|string',
+            'data.attributes.status' => ['required', Rule::enum(TicketStatus::class)],
+        ];
+
+        if ($this->routeIs('tickets.store')) {
+            $data['data.relationships.user.id'] = 'required|exists:users,id';
+        }
+
+        return $data;
+    }
+
+    public function messages()
+    {
         return [
-            //
+            'data.attributes.status' => __('The status must be one of the following [1,2,3,4,5]')
         ];
     }
 }
