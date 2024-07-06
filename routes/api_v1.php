@@ -22,8 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('tickets', TicketController::class);
     Route::apiResource('users', UserController::class);
     Route::get('users/{user}/tickets', [\App\Http\Controllers\Api\V1\UserTicketsController::class, 'index']);
-    Route::apiResource('users.tickets', \App\Http\Controllers\Api\V1\UserTicketsController::class)->shallow();
+    Route::apiResource('users.tickets', \App\Http\Controllers\Api\V1\UserTicketsController::class)->except('update');
+    Route::put('users/{user}/tickets/{ticket}', [\App\Http\Controllers\Api\V1\UserTicketsController::class, 'replace'])->name('users.tickets.replace');
+    Route::apiResource('tickets', TicketController::class)->except('update');
+    Route::patch('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+    Route::put('tickets/{ticket}', [TicketController::class, 'replace'])->name('tickets.replace');
 });
