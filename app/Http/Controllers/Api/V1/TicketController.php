@@ -53,7 +53,12 @@ class TicketController extends ApiController
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        //
+        $data = $request->validated();
+
+        $ticket->update(data_get($data, 'data.attributes')
+        + (data_get($data, 'data.relationships.user.id') ? ['user_id' => data_get($data, 'data.relationships.user.id')] : []));
+
+        return $this->success(data: $ticket);
     }
 
     /**
@@ -65,7 +70,7 @@ class TicketController extends ApiController
 
         $ticket->update(data_get($data, 'data.attributes') + ['user_id' => data_get($data, 'data.relationships.user.id')]);
 
-        return $this->success($ticket);
+        return $this->success(data: $ticket);
     }
 
     /**

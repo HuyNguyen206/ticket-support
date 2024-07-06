@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Api\V1;
 
+use App\Enum\TicketStatus;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTicketRequest extends FormRequest
 {
@@ -11,7 +14,7 @@ class UpdateTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +25,11 @@ class UpdateTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'data.attributes.title' => 'sometimes|string',
+            'data.attributes.description' => 'sometimes|string',
+            'data.attributes.status' => ['sometimes', Rule::enum(TicketStatus::class)],
+            'data.relationships.user.id' => ['sometimes', Rule::exists(User::class, 'id')],
         ];
+
     }
 }
