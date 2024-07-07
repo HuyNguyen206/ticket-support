@@ -10,12 +10,16 @@ use App\Http\Requests\Api\V1\StoreTicketRequest;
 use App\Http\Requests\Api\V1\UpdateTicketRequest;
 use App\Http\Resources\V1\TicketResource;
 use App\Models\Ticket;
+use App\Policies\V1\TicketPolicy;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TicketController extends ApiController
 {
+    public string $policyClass = TicketPolicy::class;
+
     /**
      * Display a listing of the resource.
      */
@@ -53,6 +57,12 @@ class TicketController extends ApiController
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
+        try {
+            $this->isAbleTo('update', $ticket);
+        } catch (AuthorizationException $exception) {
+            return $this->error($exception->getMessage(), statusCode: Response::HTTP_UNAUTHORIZED);
+        }
+
         $data = $request->validated();
 
         $ticket->update(data_get($data, 'data.attributes')
