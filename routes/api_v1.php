@@ -27,6 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users.tickets', \App\Http\Controllers\Api\V1\UserTicketsController::class)->except('update');
     Route::put('users/{user}/tickets/{ticket}', [\App\Http\Controllers\Api\V1\UserTicketsController::class, 'replace'])->name('users.tickets.replace');
     Route::apiResource('tickets', TicketController::class)->except('update');
-    Route::patch('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
-    Route::put('tickets/{ticket}', [TicketController::class, 'replace'])->name('tickets.replace');
+    Route::patch('tickets/{ticket}', [TicketController::class, 'update'])->middleware('can:update,ticket')->name('tickets.update');
+    Route::put('tickets/{ticket}', [TicketController::class, 'replace'])->middleware('can:replace,ticket')->name('tickets.replace');
 });

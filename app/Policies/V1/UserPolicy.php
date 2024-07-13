@@ -2,24 +2,23 @@
 
 namespace App\Policies\V1;
 
-use App\Models\Ticket;
 use App\Models\User;
 use App\Permissions\V1\Abilities;
 
-class TicketPolicy
+class UserPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        //
+
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Ticket $ticket): bool
+    public function view(User $user, User $model): bool
     {
         //
     }
@@ -29,37 +28,29 @@ class TicketPolicy
      */
     public function create(User $user): bool
     {
-        return $user->tokenCan(Abilities::CreateTicket);
+        return $user->tokenCan(Abilities::CreateUser);
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Ticket $ticket): bool
+    public function update(User $user, User $model): bool
     {
-        if ($user->tokenCan(Abilities::UpdateTicket)) {
-            return true;
-        }
-
-        return $user->tokenCan(Abilities::UpdateOwnTicket) && $user->is($ticket->user);
+        return $user->tokenCan(Abilities::UpdateUser);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Ticket $ticket): bool
+    public function delete(User $user, User $model): bool
     {
-        if ($user->tokenCan(Abilities::DeleteTicket)) {
-            return true;
-        }
-
-        return $user->tokenCan(Abilities::DeleteOwnTicket) && $user->is($ticket->user);
+        return $user->tokenCan(Abilities::DeleteUser);
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Ticket $ticket): bool
+    public function restore(User $user, User $model): bool
     {
         //
     }
@@ -67,7 +58,7 @@ class TicketPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Ticket $ticket): bool
+    public function forceDelete(User $user, User $model): bool
     {
         //
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use App\Permissions\V1\Abilities;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +22,10 @@ class AuthController extends Controller
             return $this->error('Invalid credentials', 401);
         }
 
+        $user = User::firstWhere('email', $data['email']);
         return $this->success('Authentication successful', [
-            'access_token' => User::firstWhere('email', $data['email'])->createToken("token_{$data['email']}", ['*'], now()->addMonth())->plainTextToken
+            'access_token' => $user
+                ->createToken("token_{$data['email']}", Abilities::getAbilities($user), now()->addMonth())->plainTextToken
         ]);
     }
 
