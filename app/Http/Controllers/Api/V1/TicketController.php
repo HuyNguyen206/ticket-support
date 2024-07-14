@@ -34,6 +34,8 @@ class TicketController extends ApiController
      */
     public function store(StoreTicketRequest $request)
     {
+        $this->isAbleTo('create', Ticket::class);
+
         $data = $request->validated();
 
         return $this->success(data: TicketResource::make(Ticket::create(data_get($data, 'data.attributes') + ['user_id' => data_get($data, 'data.relationships.user.id')])), statusCode: Response::HTTP_CREATED);

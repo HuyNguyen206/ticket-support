@@ -18,7 +18,7 @@ class ApiController extends Controller
         return in_array($relationship, $includeValues, true);
     }
 
-    protected function isAbleTo($action, Model $model): Response
+    protected function isAbleTo($action, Model|string $model): Response
     {
         return $this->authorize($action, property_exists($this, 'policyClass') ? [$model, $this->policyClass] : $model);
     }

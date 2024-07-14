@@ -4,6 +4,7 @@ namespace App\Http\Requests\Api\V1;
 
 use App\Enum\TicketStatus;
 use App\Models\User;
+use App\Permissions\V1\Abilities;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,12 +25,17 @@ class UpdateTicketRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'data.attributes.title' => 'sometimes|string',
             'data.attributes.description' => 'sometimes|string',
             'data.attributes.status' => ['sometimes', Rule::enum(TicketStatus::class)],
             'data.relationships.user.id' => ['sometimes', Rule::exists(User::class, 'id')],
         ];
 
+        if ($this->user()->tokenCan(Abilities::UpdateOwnTicket)) {
+            $rules['data.relationships.user.id'] = 'prohibited';
+        }
+
+        return $rules;
     }
 }

@@ -29,7 +29,7 @@ class TicketPolicy
      */
     public function create(User $user): bool
     {
-        return $user->tokenCan(Abilities::CreateTicket);
+        return $user->tokenCan(Abilities::CreateTicket) || $user->tokenCan(Abilities::CreateOwnTicket);
     }
 
     /**

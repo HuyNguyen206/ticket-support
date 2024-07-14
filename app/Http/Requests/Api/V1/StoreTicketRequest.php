@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\V1;
 
 use App\Enum\TicketStatus;
+use App\Permissions\V1\Abilities;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -30,7 +31,11 @@ class StoreTicketRequest extends FormRequest
         ];
 
         if ($this->routeIs('tickets.store')) {
-            $data['data.relationships.user.id'] = 'required|exists:users,id';
+            $data['data.relationships.user.id'] = 'required|numeric|exists:users,id';
+            $user = $this->user();
+            if ($user->tokenCan(Abilities::CreateOwnTicket)) {
+                $data['data.relationships.user.id'] .='|size:'. $user->id;
+            }
         }
 
         return $data;

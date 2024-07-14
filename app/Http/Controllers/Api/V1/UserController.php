@@ -35,6 +35,11 @@ class UserController extends ApiController
         return $this->success(data: new UserResource($user));
     }
 
+    public function me(Request $request)
+    {
+        return new UserResource($request->user());
+    }
+
     /**
      * Update the specified resource in storage.
      */
