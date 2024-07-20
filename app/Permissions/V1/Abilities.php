@@ -16,9 +16,9 @@ final class Abilities
     public const DeleteOwnTicket = 'ticket:own:delete';
 
     public const CreateUser = 'user:create';
-    public const DeleteUser = 'ticket:own:delete';
-    public const UpdateUser = 'ticket:own:update';
-    public const ReplaceUser = 'ticket:own:replace';
+    public const DeleteUser = 'user:delete';
+    public const UpdateUser = 'user:update';
+    public const ReplaceUser = 'user:replace';
     public static function getAbilities(User $user)
     {
         if ($user->is_manager) {

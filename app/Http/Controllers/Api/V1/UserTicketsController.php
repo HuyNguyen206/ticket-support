@@ -20,7 +20,7 @@ class UserTicketsController extends ApiController
     {
         $data = $request->validated();
 
-        return TicketResource::make($user->tickets()->create(data_get($data, 'data.attributes')));
+        return TicketResource::make($request->user()->tickets()->create(data_get($data, 'data.attributes')));
     }
 
     /**

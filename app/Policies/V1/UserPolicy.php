@@ -48,6 +48,30 @@ class UserPolicy
     }
 
     /**
+     * Determine whether the user can create models.
+     */
+    public function createAuthor(User $user): bool
+    {
+        return $user->tokenCan(Abilities::CreateUser);
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     */
+    public function updateAuthor(User $user, User $model): bool
+    {
+        return $user->tokenCan(Abilities::UpdateUser);
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function deleteAuthor(User $user, User $model): bool
+    {
+        return $user->tokenCan(Abilities::DeleteUser);
+    }
+
+    /**
      * Determine whether the user can restore the model.
      */
     public function restore(User $user, User $model): bool

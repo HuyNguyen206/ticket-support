@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', UserController::class);
+    Route::post('authors', [UserController::class, 'storeAuthor']);
+    Route::get('authors', [UserController::class, 'authors']);
     Route::get('me', [UserController::class, 'me']);
     Route::get('users/{user}/tickets', [\App\Http\Controllers\Api\V1\UserTicketsController::class, 'index']);
     Route::apiResource('users.tickets', \App\Http\Controllers\Api\V1\UserTicketsController::class)->except('update');

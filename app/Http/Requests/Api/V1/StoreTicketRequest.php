@@ -30,13 +30,13 @@ class StoreTicketRequest extends FormRequest
             'data.attributes.status' => ['required', Rule::enum(TicketStatus::class)],
         ];
 
-        if ($this->routeIs('tickets.store')) {
-            $data['data.relationships.user.id'] = 'required|numeric|exists:users,id';
+//        if ($this->routeIs('tickets.store')) {
+            $data['data.relationships.user.id'] = 'sometimes|numeric|exists:users,id';
             $user = $this->user();
             if ($user->tokenCan(Abilities::CreateOwnTicket)) {
                 $data['data.relationships.user.id'] .='|size:'. $user->id;
             }
-        }
+//        }
 
         return $data;
     }
