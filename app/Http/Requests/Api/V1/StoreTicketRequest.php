@@ -24,17 +24,19 @@ class StoreTicketRequest extends FormRequest
      */
     public function rules(): array
     {
+        $user = $this->user();
+        $baseRule = 'sometimes|numeric|exists:users,id';
+
         $data = [
             'data.attributes.title' => 'required|string',
             'data.attributes.description' => 'required|string',
             'data.attributes.status' => ['required', Rule::enum(TicketStatus::class)],
+            'data.relationships.user.id' => $baseRule . '|size:'. $user->id
         ];
 
 //        if ($this->routeIs('tickets.store')) {
-            $data['data.relationships.user.id'] = 'sometimes|numeric|exists:users,id';
-            $user = $this->user();
-            if ($user->tokenCan(Abilities::CreateOwnTicket)) {
-                $data['data.relationships.user.id'] .='|size:'. $user->id;
+            if ($user->tokenCan(Abilities::CreateTicket)) {
+                $data['data.relationships.user.id'] = $baseRule;
             }
 //        }
 

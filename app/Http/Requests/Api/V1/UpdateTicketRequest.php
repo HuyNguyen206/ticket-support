@@ -29,11 +29,11 @@ class UpdateTicketRequest extends FormRequest
             'data.attributes.title' => 'sometimes|string',
             'data.attributes.description' => 'sometimes|string',
             'data.attributes.status' => ['sometimes', Rule::enum(TicketStatus::class)],
-            'data.relationships.user.id' => ['sometimes', Rule::exists(User::class, 'id')],
+            'data.relationships.user.id' => 'prohibited',
         ];
 
-        if ($this->user()->tokenCan(Abilities::UpdateOwnTicket)) {
-            $rules['data.relationships.user.id'] = 'prohibited';
+        if ($this->user()->tokenCan(Abilities::UpdateTicket)) {
+            $rules['data.relationships.user.id'] = ['sometimes', Rule::exists(User::class, 'id')];
         }
 
         return $rules;

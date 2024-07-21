@@ -21,8 +21,14 @@ final class Abilities
     public const ReplaceUser = 'user:replace';
     public static function getAbilities(User $user)
     {
+        $baseAbilities = [
+            self::CreateOwnTicket,
+            self::UpdateOwnTicket,
+            self::DeleteOwnTicket,
+        ];
+
         if ($user->is_manager) {
-            return [
+             $baseAbilities += [
                 self::CreateTicket,
                 self::UpdateTicket,
                 self::ReplaceTicket,
@@ -34,10 +40,6 @@ final class Abilities
             ];
         }
 
-        return [
-            self::CreateOwnTicket,
-            self::UpdateOwnTicket,
-            self::DeleteOwnTicket,
-        ];
+        return $baseAbilities;
     }
 }
