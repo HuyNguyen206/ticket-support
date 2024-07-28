@@ -5,6 +5,7 @@ namespace App\Http\Requests\Api\V1;
 use App\Enum\TicketStatus;
 use App\Permissions\V1\Abilities;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class StoreTicketRequest extends FormRequest
@@ -24,7 +25,7 @@ class StoreTicketRequest extends FormRequest
      */
     public function rules(): array
     {
-        $user = $this->user();
+        $user = Auth::user();
         $baseRule = 'sometimes|numeric|exists:users,id';
 
         $data = [

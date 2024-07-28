@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use App\Traits\ApiResponse;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -40,6 +41,7 @@ class Handler extends ExceptionHandler
           $e instanceof ModelNotFoundException => Response::HTTP_NOT_FOUND,
           $e instanceof AuthorizationException => Response::HTTP_FORBIDDEN,
           $e instanceof ValidationException => Response::HTTP_UNPROCESSABLE_ENTITY,
+          $e instanceof AuthenticationException => Response::HTTP_UNAUTHORIZED,
             default => Response::HTTP_INTERNAL_SERVER_ERROR,
         };
 

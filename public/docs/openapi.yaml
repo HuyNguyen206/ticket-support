@@ -1,0 +1,798 @@
+openapi: 3.0.3
+info:
+  title: 'Ticket Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: Login
+      operationId: login
+      description: "Authenticates the user and return the user's API token"
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n\"message\": \"Authentication successful\",\n\"data\": {\n\"access_token\": \"17|gM5R2a6TTVjFZenMSMCTqWoU93qSNlzINwpz7R4Na96ddd1e\"\n},\n\"status\": 200\n}\n}"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: malika.rau@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: quo
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: "Log out the user and delete user's API token"
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Authentication
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+  /api/v1/users:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/authors:
+    post:
+      summary: ''
+      operationId: postApiV1Authors
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    attributes:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        name:
+                          type: string
+                          description: ''
+                          example: odit
+                        email:
+                          type: string
+                          description: 'Must be a valid email address.'
+                          example: swift.alanna@example.com
+                        password:
+                          type: string
+                          description: ''
+                          example: 'CD[ocS%5b#'
+                        is_manager:
+                          type: boolean
+                          description: ''
+                          example: true
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+  /api/v1/me:
+    get:
+      summary: ''
+      operationId: getApiV1Me
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+  '/api/v1/users/{user_id}/tickets':
+    get:
+      summary: ''
+      operationId: getApiV1UsersUser_idTickets
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiV1UsersUser_idTickets
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    attributes:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        title:
+                          type: string
+                          description: ''
+                          example: cum
+                        description:
+                          type: string
+                          description: ''
+                          example: 'Sit aut odit fugiat aliquid.'
+                        status:
+                          type: integer
+                          description: ''
+                          example: 2
+                          enum:
+                            - 1
+                            - 2
+                            - 3
+                            - 4
+                            - 5
+                    relationships:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        user:
+                          type: object
+                          description: ''
+                          example: []
+                          properties:
+                            id:
+                              type: number
+                              description: 'Must be 1.'
+                              example: '1'
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/users/{user_id}/tickets/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiV1UsersUser_idTicketsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket.'
+        example: sed
+        required: true
+        schema:
+          type: string
+  '/api/v1/users/{user_id}/tickets/{ticket}':
+    put:
+      summary: 'Replace the specified resource in storage.'
+      operationId: replaceTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    attributes:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        title:
+                          type: string
+                          description: ''
+                          example: laborum
+                        description:
+                          type: string
+                          description: ''
+                          example: 'Enim dolor hic nam aut libero eos amet molestiae.'
+                        status:
+                          type: integer
+                          description: ''
+                          example: 4
+                          enum:
+                            - 1
+                            - 2
+                            - 3
+                            - 4
+                            - 5
+                    relationships:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        user:
+                          type: object
+                          description: ''
+                          example: []
+                          properties:
+                            id:
+                              type: string
+                              description: ''
+                              example: qui
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: ticket
+        description: 'The ticket.'
+        example: necessitatibus
+        required: true
+        schema:
+          type: string
+  /api/v1/tickets:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    attributes:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        title:
+                          type: string
+                          description: ''
+                          example: sit
+                        description:
+                          type: string
+                          description: ''
+                          example: 'Veniam et et dolores labore dolores.'
+                        status:
+                          type: integer
+                          description: ''
+                          example: 2
+                          enum:
+                            - 1
+                            - 2
+                            - 3
+                            - 4
+                            - 5
+                    relationships:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        user:
+                          type: object
+                          description: ''
+                          example: []
+                          properties:
+                            id:
+                              type: number
+                              description: 'Must be 1.'
+                              example: '1'
+  '/api/v1/tickets/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    type: ErrorException
+                    status: 0
+                    message: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                    source: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: ErrorException
+                      status:
+                        type: integer
+                        example: 0
+                      message:
+                        type: string
+                        example: 'fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied'
+                      source:
+                        type: string
+                        example: 'Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php'
+      tags:
+        - Endpoints
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    patch:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    attributes:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        title:
+                          type: string
+                          description: ''
+                          example: quas
+                        description:
+                          type: string
+                          description: ''
+                          example: 'Nostrum ut distinctio ea assumenda ipsum corrupti doloremque.'
+                        status:
+                          type: integer
+                          description: ''
+                          example: 1
+                          enum:
+                            - 1
+                            - 2
+                            - 3
+                            - 4
+                            - 5
+                    relationships:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        user:
+                          type: object
+                          description: ''
+                          example: []
+                          properties:
+                            id:
+                              type: string
+                              description: ''
+                              example: null
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ticket.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/tickets/{ticket_id}':
+    put:
+      summary: 'Replace the specified resource in storage.'
+      operationId: replaceTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    attributes:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        title:
+                          type: string
+                          description: ''
+                          example: harum
+                        description:
+                          type: string
+                          description: ''
+                          example: 'Vitae eum eos voluptates non.'
+                        status:
+                          type: integer
+                          description: ''
+                          example: 2
+                          enum:
+                            - 1
+                            - 2
+                            - 3
+                            - 4
+                            - 5
+                    relationships:
+                      type: object
+                      description: ''
+                      example: []
+                      properties:
+                        user:
+                          type: object
+                          description: ''
+                          example: []
+                          properties:
+                            id:
+                              type: string
+                              description: ''
+                              example: et
+    parameters:
+      -
+        in: path
+        name: ticket_id
+        description: 'The ID of the ticket.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

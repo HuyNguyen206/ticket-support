@@ -6,6 +6,7 @@ use App\Enum\TicketStatus;
 use App\Models\User;
 use App\Permissions\V1\Abilities;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UpdateTicketRequest extends FormRequest
@@ -32,7 +33,7 @@ class UpdateTicketRequest extends FormRequest
             'data.relationships.user.id' => 'prohibited',
         ];
 
-        if ($this->user()->tokenCan(Abilities::UpdateTicket)) {
+        if (Auth::user()->tokenCan(Abilities::UpdateTicket)) {
             $rules['data.relationships.user.id'] = ['sometimes', Rule::exists(User::class, 'id')];
         }
 

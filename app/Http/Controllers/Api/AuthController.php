@@ -14,6 +14,23 @@ use Symfony\Component\HttpFoundation\Response;
 class AuthController extends Controller
 {
     use ApiResponse;
+
+    /**
+     * Login
+     *
+     * Authenticates the user and return the user's API token
+     * @unauthenticated
+     * @group Authentication
+     * @response 200 {
+     *     {
+     * "message": "Authentication successful",
+     * "data": {
+     * "access_token": "17|gM5R2a6TTVjFZenMSMCTqWoU93qSNlzINwpz7R4Na96ddd1e"
+     * },
+     * "status": 200
+     * }
+     * }
+     */
     public function login(LoginRequest $request)
     {
         $data = $request->validated();
@@ -29,6 +46,14 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Logout
+     *
+     *  Log out the user and delete user's API token
+     * @group Authentication
+     *
+     * @response 204 {}
+     */
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
