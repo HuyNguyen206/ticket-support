@@ -28,16 +28,16 @@ final class Abilities
         ];
 
         if ($user->is_manager) {
-             $baseAbilities += [
-                self::CreateTicket,
-                self::UpdateTicket,
-                self::ReplaceTicket,
-                self::DeleteTicket,
-                self::CreateUser,
-                self::DeleteUser,
-                self::UpdateUser,
-                self::ReplaceUser,
-            ];
+            $baseAbilities = array_merge($baseAbilities, [
+                 self::CreateTicket,
+                 self::UpdateTicket,
+                 self::ReplaceTicket,
+                 self::DeleteTicket,
+                 self::CreateUser,
+                 self::DeleteUser,
+                 self::UpdateUser,
+                 self::ReplaceUser,
+             ]);
         }
 
         return $baseAbilities;

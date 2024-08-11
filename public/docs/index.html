@@ -120,12 +120,6 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-v1-users--user_id--tickets--ticket-">
                                 <a href="#endpoints-PUTapi-v1-users--user_id--tickets--ticket-">Replace the specified resource in storage.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-tickets">
-                                <a href="#endpoints-GETapi-v1-tickets">Display a listing of the resource.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-tickets">
-                                <a href="#endpoints-POSTapi-v1-tickets">Store a newly created resource in storage.</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-tickets--id-">
                                 <a href="#endpoints-GETapi-v1-tickets--id-">Display the specified resource.</a>
                             </li>
@@ -140,6 +134,19 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-managing-tickets" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="managing-tickets">
+                    <a href="#managing-tickets">Managing tickets</a>
+                </li>
+                                    <ul id="tocify-subheader-managing-tickets" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="managing-tickets-GETapi-v1-tickets">
+                                <a href="#managing-tickets-GETapi-v1-tickets">Get all tickets.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="managing-tickets-POSTapi-v1-tickets">
+                                <a href="#managing-tickets-POSTapi-v1-tickets">Create a new Ticket.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -149,7 +156,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 28, 2024</li>
+        <li>Last updated: August 11, 2024</li>
     </ul>
 </div>
 
@@ -190,8 +197,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"malika.rau@example.org\",
-    \"password\": \"quo\"
+    \"email\": \"hirthe.rollin@example.com\",
+    \"password\": \"dolores\"
 }"
 </code></pre></div>
 
@@ -207,8 +214,8 @@ const headers = {
 };
 
 let body = {
-    "email": "malika.rau@example.org",
-    "password": "quo"
+    "email": "hirthe.rollin@example.com",
+    "password": "dolores"
 };
 
 fetch(url, {
@@ -312,10 +319,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="malika.rau@example.org"
+               value="hirthe.rollin@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>malika.rau@example.org</code></p>
+<p>Must be a valid email address. Example: <code>hirthe.rollin@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -323,10 +330,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="quo"
+               value="dolores"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>dolores</code></p>
         </div>
         </form>
 
@@ -502,7 +509,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-user">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -510,16 +517,19 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 51
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
-    }
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;huy&quot;,
+    &quot;email&quot;: &quot;nguyenlehuyuit@gmail.com&quot;,
+    &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+    &quot;is_manager&quot;: 1,
+    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -645,7 +655,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-users">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -653,16 +663,216 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 50
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
-    }
+    &quot;message&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;huy&quot;,
+                &quot;email&quot;: &quot;nguyenlehuyuit@gmail.com&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;kpzieW8L1t&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Callie Feil&quot;,
+                &quot;email&quot;: &quot;blanche17@example.net&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;P6Ul4cR7J3&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Lorenzo Carter&quot;,
+                &quot;email&quot;: &quot;savanna73@example.net&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;kqJliDvgpc&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Delilah Sawayn&quot;,
+                &quot;email&quot;: &quot;borer.fern@example.org&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;1zKxEGI83Y&quot;
+            },
+            {
+                &quot;id&quot;: 5,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Prof. Ron Wuckert III&quot;,
+                &quot;email&quot;: &quot;wuckert.calista@example.net&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;10YdH1yAQ4&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Muhammad Hintz II&quot;,
+                &quot;email&quot;: &quot;ariel91@example.com&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;B4sz2afm1D&quot;
+            },
+            {
+                &quot;id&quot;: 7,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Elise Franecki&quot;,
+                &quot;email&quot;: &quot;bstrosin@example.net&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;12Ka4iNkDc&quot;
+            },
+            {
+                &quot;id&quot;: 8,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Jakob Dare&quot;,
+                &quot;email&quot;: &quot;thiel.chadd@example.org&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;1zRdjBZjIF&quot;
+            },
+            {
+                &quot;id&quot;: 9,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Lila Carroll&quot;,
+                &quot;email&quot;: &quot;owhite@example.org&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;NoUasireDn&quot;
+            },
+            {
+                &quot;id&quot;: 10,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Manley Gutkowski&quot;,
+                &quot;email&quot;: &quot;xmarquardt@example.net&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;ZVBZiKLS6T&quot;
+            },
+            {
+                &quot;id&quot;: 11,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Mrs. Natalie Rowe&quot;,
+                &quot;email&quot;: &quot;terence41@example.net&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;kHdXimhzn2&quot;
+            },
+            {
+                &quot;id&quot;: 12,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Garnet Hodkiewicz Jr.&quot;,
+                &quot;email&quot;: &quot;rklocko@example.com&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;WeDzx9IgDR&quot;
+            },
+            {
+                &quot;id&quot;: 13,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Giovanna Gislason&quot;,
+                &quot;email&quot;: &quot;simonis.caesar@example.org&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;VBN3M3Xyiq&quot;
+            },
+            {
+                &quot;id&quot;: 14,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Derek Hermiston III&quot;,
+                &quot;email&quot;: &quot;nlangworth@example.org&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;nST1xQeJ1Z&quot;
+            },
+            {
+                &quot;id&quot;: 15,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Mr. Ford Moen&quot;,
+                &quot;email&quot;: &quot;garret.abernathy@example.com&quot;,
+                &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;remember_token&quot;: &quot;w676v38AEQ&quot;
+            }
+        ],
+        &quot;first_page_url&quot;: &quot;http://localhost/api/v1/users?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 8,
+        &quot;last_page_url&quot;: &quot;http://localhost/api/v1/users?page=8&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=4&quot;,
+                &quot;label&quot;: &quot;4&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=5&quot;,
+                &quot;label&quot;: &quot;5&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=6&quot;,
+                &quot;label&quot;: &quot;6&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=7&quot;,
+                &quot;label&quot;: &quot;7&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=8&quot;,
+                &quot;label&quot;: &quot;8&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;next_page_url&quot;: &quot;http://localhost/api/v1/users?page=2&quot;,
+        &quot;path&quot;: &quot;http://localhost/api/v1/users&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 15,
+        &quot;total&quot;: 118
+    },
+    &quot;status&quot;: 200
 }</code>
  </pre>
     </span>
@@ -788,7 +998,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-users--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -796,16 +1006,23 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 49
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
-    }
+    &quot;message&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+        &quot;name&quot;: &quot;huy&quot;,
+        &quot;email&quot;: &quot;nguyenlehuyuit@gmail.com&quot;,
+        &quot;email_verified_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+        &quot;remember_token&quot;: &quot;kpzieW8L1t&quot;
+    },
+    &quot;status&quot;: 200
 }</code>
  </pre>
     </span>
@@ -1196,9 +1413,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"data\": {
         \"attributes\": {
-            \"name\": \"odit\",
-            \"email\": \"swift.alanna@example.com\",
-            \"password\": \"CD[ocS%5b#\",
+            \"name\": \"perferendis\",
+            \"email\": \"mshields@example.com\",
+            \"password\": \"jC(5VR^%07y\",
             \"is_manager\": true
         }
     }
@@ -1220,9 +1437,9 @@ const headers = {
 let body = {
     "data": {
         "attributes": {
-            "name": "odit",
-            "email": "swift.alanna@example.com",
-            "password": "CD[ocS%5b#",
+            "name": "perferendis",
+            "email": "mshields@example.com",
+            "password": "jC(5VR^%07y",
             "is_manager": true
         }
     }
@@ -1343,10 +1560,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.name"                data-endpoint="POSTapi-v1-authors"
-               value="odit"
+               value="perferendis"
                data-component="body">
     <br>
-<p>Example: <code>odit</code></p>
+<p>Example: <code>perferendis</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1354,10 +1571,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.email"                data-endpoint="POSTapi-v1-authors"
-               value="swift.alanna@example.com"
+               value="mshields@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>swift.alanna@example.com</code></p>
+<p>Must be a valid email address. Example: <code>mshields@example.com</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1365,10 +1582,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.password"                data-endpoint="POSTapi-v1-authors"
-               value="CD[ocS%5b#"
+               value="jC(5VR^%07y"
                data-component="body">
     <br>
-<p>Example: <code>CD[ocS%5b#</code></p>
+<p>Example: <code>jC(5VR^%07y</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>is_manager</code></b>&nbsp;&nbsp;
@@ -1437,7 +1654,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-authors">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1445,16 +1662,186 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 48
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
-    }
+    &quot;message&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;huy&quot;,
+                &quot;email&quot;: &quot;nguyenlehuyuit@gmail.com&quot;
+            },
+            {
+                &quot;id&quot;: 12,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Garnet Hodkiewicz Jr.&quot;,
+                &quot;email&quot;: &quot;rklocko@example.com&quot;
+            },
+            {
+                &quot;id&quot;: 13,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Giovanna Gislason&quot;,
+                &quot;email&quot;: &quot;simonis.caesar@example.org&quot;
+            },
+            {
+                &quot;id&quot;: 14,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Derek Hermiston III&quot;,
+                &quot;email&quot;: &quot;nlangworth@example.org&quot;
+            },
+            {
+                &quot;id&quot;: 15,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Mr. Ford Moen&quot;,
+                &quot;email&quot;: &quot;garret.abernathy@example.com&quot;
+            },
+            {
+                &quot;id&quot;: 16,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Arnulfo Wyman&quot;,
+                &quot;email&quot;: &quot;toy.abshire@example.com&quot;
+            },
+            {
+                &quot;id&quot;: 17,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Prof. Jordy Crist DDS&quot;,
+                &quot;email&quot;: &quot;prince15@example.org&quot;
+            },
+            {
+                &quot;id&quot;: 18,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Garfield Leuschke&quot;,
+                &quot;email&quot;: &quot;jacobi.orie@example.net&quot;
+            },
+            {
+                &quot;id&quot;: 19,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Nia Osinski&quot;,
+                &quot;email&quot;: &quot;leichmann@example.org&quot;
+            },
+            {
+                &quot;id&quot;: 20,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Mortimer Fay&quot;,
+                &quot;email&quot;: &quot;bwitting@example.com&quot;
+            },
+            {
+                &quot;id&quot;: 21,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Jayda Mante DVM&quot;,
+                &quot;email&quot;: &quot;america.prosacco@example.net&quot;
+            },
+            {
+                &quot;id&quot;: 22,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Brown Schmidt&quot;,
+                &quot;email&quot;: &quot;feeney.emile@example.org&quot;
+            },
+            {
+                &quot;id&quot;: 23,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Kellie Lynch PhD&quot;,
+                &quot;email&quot;: &quot;sgrant@example.net&quot;
+            },
+            {
+                &quot;id&quot;: 24,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Dr. Marlene Koelpin III&quot;,
+                &quot;email&quot;: &quot;michaela56@example.com&quot;
+            },
+            {
+                &quot;id&quot;: 25,
+                &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                &quot;name&quot;: &quot;Brandt Huel&quot;,
+                &quot;email&quot;: &quot;emiliano56@example.org&quot;
+            }
+        ],
+        &quot;first_page_url&quot;: &quot;http://localhost/api/v1/authors?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 8,
+        &quot;last_page_url&quot;: &quot;http://localhost/api/v1/authors?page=8&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=4&quot;,
+                &quot;label&quot;: &quot;4&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=5&quot;,
+                &quot;label&quot;: &quot;5&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=6&quot;,
+                &quot;label&quot;: &quot;6&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=7&quot;,
+                &quot;label&quot;: &quot;7&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=8&quot;,
+                &quot;label&quot;: &quot;8&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/authors?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;next_page_url&quot;: &quot;http://localhost/api/v1/authors?page=2&quot;,
+        &quot;path&quot;: &quot;http://localhost/api/v1/authors&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 15,
+        &quot;total&quot;: 110
+    },
+    &quot;status&quot;: 200
 }</code>
  </pre>
     </span>
@@ -1580,7 +1967,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-me">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1588,15 +1975,18 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 47
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+        &quot;name&quot;: &quot;huy&quot;,
+        &quot;email&quot;: &quot;nguyenlehuyuit@gmail.com&quot;
     }
 }</code>
  </pre>
@@ -1723,7 +2113,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-users--user_id--tickets">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1731,16 +2121,116 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 46
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
-    }
+    &quot;message&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 101,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:49:55.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:49:55.000000Z&quot;,
+                    &quot;title&quot;: &quot;Test&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/101&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 107,
+                    &quot;created_at&quot;: &quot;2024-07-20T09:58:15.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-20T09:58:15.000000Z&quot;,
+                    &quot;title&quot;: &quot;Test&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/107&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 108,
+                    &quot;created_at&quot;: &quot;2024-07-20T09:58:19.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-20T09:58:19.000000Z&quot;,
+                    &quot;title&quot;: &quot;Test&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/108&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 109,
+                    &quot;created_at&quot;: &quot;2024-07-27T05:38:23.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-27T05:38:23.000000Z&quot;,
+                    &quot;title&quot;: &quot;Test&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/109&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 110,
+                    &quot;created_at&quot;: &quot;2024-08-11T00:31:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-08-11T00:31:38.000000Z&quot;,
+                    &quot;title&quot;: &quot;Test&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/110&quot;
+                },
+                &quot;relationships&quot;: []
+            }
+        ],
+        &quot;first_page_url&quot;: &quot;http://localhost/api/v1/users/1/tickets?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;last_page_url&quot;: &quot;http://localhost/api/v1/users/1/tickets?page=1&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users/1/tickets?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;next_page_url&quot;: null,
+        &quot;path&quot;: &quot;http://localhost/api/v1/users/1/tickets&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 5,
+        &quot;total&quot;: 5
+    },
+    &quot;status&quot;: 200
 }</code>
  </pre>
     </span>
@@ -1858,14 +2348,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"data\": {
-        \"attributes\": {
-            \"title\": \"cum\",
-            \"description\": \"Sit aut odit fugiat aliquid.\",
-            \"status\": 2
-        },
         \"relationships\": {
             \"user\": {
-                \"id\": \"1\"
+                \"id\": 17
             }
         }
     }
@@ -1886,14 +2371,9 @@ const headers = {
 
 let body = {
     "data": {
-        "attributes": {
-            "title": "cum",
-            "description": "Sit aut odit fugiat aliquid.",
-            "status": 2
-        },
         "relationships": {
             "user": {
-                "id": "1"
+                "id": 17
             }
         }
     }
@@ -2006,19 +2486,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>data</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
 <br>
-
+<p>Example: <code>sed</code></p>
             </summary>
                                                 <div style=" margin-left: 14px; clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>attributes</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
 <br>
-
+<p>Example: <code>quisquam</code></p>
             </summary>
                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -2026,10 +2506,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.title"                data-endpoint="POSTapi-v1-users--user_id--tickets"
-               value="cum"
+               value="No-example"
                data-component="body">
     <br>
-<p>Example: <code>cum</code></p>
+<p>Ticket's title. Example: <code>No-example</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2037,10 +2517,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.description"                data-endpoint="POSTapi-v1-users--user_id--tickets"
-               value="Sit aut odit fugiat aliquid."
+               value="No-example"
                data-component="body">
     <br>
-<p>Example: <code>Sit aut odit fugiat aliquid.</code></p>
+<p>Ticket's description. Example: <code>No-example</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -2048,10 +2528,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="data.attributes.status"                data-endpoint="POSTapi-v1-users--user_id--tickets"
-               value="2"
+               value="0"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Ticket's status. Example: <code>0</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li> <li><code>3</code></li> <li><code>4</code></li> <li><code>5</code></li></ul>
                     </div>
@@ -2077,14 +2557,14 @@ Must be one of:
             </summary>
                                                 <div style="margin-left: 42px; clear: unset;">
                         <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="data.relationships.user.id"                data-endpoint="POSTapi-v1-users--user_id--tickets"
-               value="1"
+               value="17"
                data-component="body">
     <br>
-<p>Must be 1. Example: <code>1</code></p>
+<p>Example: <code>17</code></p>
                     </div>
                                     </details>
         </div>
@@ -2108,7 +2588,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/users/1/tickets/sed" \
+    "http://localhost/api/v1/users/1/tickets/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2116,7 +2596,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/1/tickets/sed"
+    "http://localhost/api/v1/users/1/tickets/1"
 );
 
 const headers = {
@@ -2228,14 +2708,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="DELETEapi-v1-users--user_id--tickets--id-"
-               value="sed"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-users--user_id--tickets--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the ticket. Example: <code>sed</code></p>
+<p>The ID of the ticket. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2253,20 +2733,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/users/1/tickets/necessitatibus" \
+    "http://localhost/api/v1/users/1/tickets/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"data\": {
         \"attributes\": {
-            \"title\": \"laborum\",
-            \"description\": \"Enim dolor hic nam aut libero eos amet molestiae.\",
-            \"status\": 4
+            \"title\": \"molestiae\",
+            \"description\": \"Adipisci et autem inventore doloribus et qui qui.\",
+            \"status\": 5
         },
         \"relationships\": {
             \"user\": {
-                \"id\": \"qui\"
+                \"id\": \"expedita\"
             }
         }
     }
@@ -2276,7 +2756,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/1/tickets/necessitatibus"
+    "http://localhost/api/v1/users/1/tickets/1"
 );
 
 const headers = {
@@ -2288,13 +2768,13 @@ const headers = {
 let body = {
     "data": {
         "attributes": {
-            "title": "laborum",
-            "description": "Enim dolor hic nam aut libero eos amet molestiae.",
-            "status": 4
+            "title": "molestiae",
+            "description": "Adipisci et autem inventore doloribus et qui qui.",
+            "status": 5
         },
         "relationships": {
             "user": {
-                "id": "qui"
+                "id": "expedita"
             }
         }
     }
@@ -2404,14 +2884,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ticket</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="ticket"                data-endpoint="PUTapi-v1-users--user_id--tickets--ticket-"
-               value="necessitatibus"
+                <input type="number" style="display: none"
+               step="any"               name="ticket"                data-endpoint="PUTapi-v1-users--user_id--tickets--ticket-"
+               value="1"
                data-component="url">
     <br>
-<p>The ticket. Example: <code>necessitatibus</code></p>
+<p>The ticket. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2438,10 +2918,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.title"                data-endpoint="PUTapi-v1-users--user_id--tickets--ticket-"
-               value="laborum"
+               value="molestiae"
                data-component="body">
     <br>
-<p>Example: <code>laborum</code></p>
+<p>Example: <code>molestiae</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2449,10 +2929,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.description"                data-endpoint="PUTapi-v1-users--user_id--tickets--ticket-"
-               value="Enim dolor hic nam aut libero eos amet molestiae."
+               value="Adipisci et autem inventore doloribus et qui qui."
                data-component="body">
     <br>
-<p>Example: <code>Enim dolor hic nam aut libero eos amet molestiae.</code></p>
+<p>Example: <code>Adipisci et autem inventore doloribus et qui qui.</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -2460,10 +2940,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="data.attributes.status"                data-endpoint="PUTapi-v1-users--user_id--tickets--ticket-"
-               value="4"
+               value="5"
                data-component="body">
     <br>
-<p>Example: <code>4</code></p>
+<p>Example: <code>5</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li> <li><code>3</code></li> <li><code>4</code></li> <li><code>5</code></li></ul>
                     </div>
@@ -2493,397 +2973,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.relationships.user.id"                data-endpoint="PUTapi-v1-users--user_id--tickets--ticket-"
-               value="qui"
+               value="expedita"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
-                    </div>
-                                    </details>
-        </div>
-                                        </details>
-        </div>
-                                        </details>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-GETapi-v1-tickets">Display a listing of the resource.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-tickets">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/tickets" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/tickets"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-tickets">
-            <blockquote>
-            <p>Example response (500):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-tickets" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-tickets"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-tickets"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-tickets" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-tickets">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-tickets" data-method="GET"
-      data-path="api/v1/tickets"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-tickets', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-tickets"
-                    onclick="tryItOut('GETapi-v1-tickets');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-tickets"
-                    onclick="cancelTryOut('GETapi-v1-tickets');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-tickets"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/tickets</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-tickets"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-tickets"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-tickets"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-POSTapi-v1-tickets">Store a newly created resource in storage.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-tickets">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/tickets" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"data\": {
-        \"attributes\": {
-            \"title\": \"sit\",
-            \"description\": \"Veniam et et dolores labore dolores.\",
-            \"status\": 2
-        },
-        \"relationships\": {
-            \"user\": {
-                \"id\": \"1\"
-            }
-        }
-    }
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/tickets"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "data": {
-        "attributes": {
-            "title": "sit",
-            "description": "Veniam et et dolores labore dolores.",
-            "status": 2
-        },
-        "relationships": {
-            "user": {
-                "id": "1"
-            }
-        }
-    }
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-tickets">
-</span>
-<span id="execution-results-POSTapi-v1-tickets" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-tickets"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-tickets"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-tickets" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-tickets">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-tickets" data-method="POST"
-      data-path="api/v1/tickets"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-tickets', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-tickets"
-                    onclick="tryItOut('POSTapi-v1-tickets');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-tickets"
-                    onclick="cancelTryOut('POSTapi-v1-tickets');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-tickets"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/tickets</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-tickets"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-tickets"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-tickets"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>data</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <div style=" margin-left: 14px; clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>attributes</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 28px; clear: unset;">
-                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="data.attributes.title"                data-endpoint="POSTapi-v1-tickets"
-               value="sit"
-               data-component="body">
-    <br>
-<p>Example: <code>sit</code></p>
-                    </div>
-                                                                <div style="margin-left: 28px; clear: unset;">
-                        <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="data.attributes.description"                data-endpoint="POSTapi-v1-tickets"
-               value="Veniam et et dolores labore dolores."
-               data-component="body">
-    <br>
-<p>Example: <code>Veniam et et dolores labore dolores.</code></p>
-                    </div>
-                                                                <div style="margin-left: 28px; clear: unset;">
-                        <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="data.attributes.status"                data-endpoint="POSTapi-v1-tickets"
-               value="2"
-               data-component="body">
-    <br>
-<p>Example: <code>2</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li> <li><code>3</code></li> <li><code>4</code></li> <li><code>5</code></li></ul>
-                    </div>
-                                    </details>
-        </div>
-                                                                    <div style=" margin-left: 14px; clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>relationships</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <div style=" margin-left: 28px; clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>user</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 42px; clear: unset;">
-                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="data.relationships.user.id"                data-endpoint="POSTapi-v1-tickets"
-               value="1"
-               data-component="body">
-    <br>
-<p>Must be 1. Example: <code>1</code></p>
+<p>Example: <code>expedita</code></p>
                     </div>
                                     </details>
         </div>
@@ -2933,7 +3026,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-tickets--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2941,15 +3034,26 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 44
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;errors&quot;: {
-        &quot;type&quot;: &quot;ErrorException&quot;,
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;fopen(/opt/lampp/htdocs/ticket-support/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6): Failed to open stream: Permission denied&quot;,
-        &quot;source&quot;: &quot;Line 69: at /opt/lampp/htdocs/ticket-support/vendor/laravel/framework/src/Illuminate/Filesystem/LockableFile.php&quot;
+    &quot;data&quot;: {
+        &quot;type&quot;: &quot;ticket&quot;,
+        &quot;attributes&quot;: {
+            &quot;id&quot;: 1,
+            &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-07-13T05:01:47.000000Z&quot;,
+            &quot;title&quot;: &quot;mango&quot;,
+            &quot;status&quot;: &quot;1&quot;,
+            &quot;description&quot;: &quot;Nesciunt dolorum aut ab sint qui accusamus eaque. Alias totam nesciunt ut. Rerum aliquid officia ut dolor nam.\n\nDolores distinctio ex aut. Ratione ut quas nesciunt sed beatae.\n\nSaepe velit a voluptates consequatur quaerat doloribus id. Voluptas aut dignissimos necessitatibus nostrum laudantium officia. Autem corporis est qui cum ullam. Voluptate tempora sed vitae itaque est velit explicabo.&quot;
+        },
+        &quot;links&quot;: {
+            &quot;self&quot;: &quot;http://localhost/api/v1/tickets/1&quot;
+        },
+        &quot;relationships&quot;: []
     }
 }</code>
  </pre>
@@ -3203,9 +3307,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"data\": {
         \"attributes\": {
-            \"title\": \"quas\",
-            \"description\": \"Nostrum ut distinctio ea assumenda ipsum corrupti doloremque.\",
-            \"status\": 1
+            \"title\": \"dolorem\",
+            \"description\": \"Quidem explicabo voluptatem alias corporis quasi.\",
+            \"status\": 3
         },
         \"relationships\": {
             \"user\": []
@@ -3229,9 +3333,9 @@ const headers = {
 let body = {
     "data": {
         "attributes": {
-            "title": "quas",
-            "description": "Nostrum ut distinctio ea assumenda ipsum corrupti doloremque.",
-            "status": 1
+            "title": "dolorem",
+            "description": "Quidem explicabo voluptatem alias corporis quasi.",
+            "status": 3
         },
         "relationships": {
             "user": []
@@ -3366,10 +3470,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.title"                data-endpoint="PATCHapi-v1-tickets--id-"
-               value="quas"
+               value="dolorem"
                data-component="body">
     <br>
-<p>Example: <code>quas</code></p>
+<p>Example: <code>dolorem</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3377,10 +3481,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.description"                data-endpoint="PATCHapi-v1-tickets--id-"
-               value="Nostrum ut distinctio ea assumenda ipsum corrupti doloremque."
+               value="Quidem explicabo voluptatem alias corporis quasi."
                data-component="body">
     <br>
-<p>Example: <code>Nostrum ut distinctio ea assumenda ipsum corrupti doloremque.</code></p>
+<p>Example: <code>Quidem explicabo voluptatem alias corporis quasi.</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -3388,10 +3492,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="data.attributes.status"                data-endpoint="PATCHapi-v1-tickets--id-"
-               value="1"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>3</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li> <li><code>3</code></li> <li><code>4</code></li> <li><code>5</code></li></ul>
                     </div>
@@ -3455,13 +3559,13 @@ Must be one of:
     --data "{
     \"data\": {
         \"attributes\": {
-            \"title\": \"harum\",
-            \"description\": \"Vitae eum eos voluptates non.\",
-            \"status\": 2
+            \"title\": \"minus\",
+            \"description\": \"Ut ratione expedita qui saepe sequi reiciendis deleniti.\",
+            \"status\": 1
         },
         \"relationships\": {
             \"user\": {
-                \"id\": \"et\"
+                \"id\": \"totam\"
             }
         }
     }
@@ -3483,13 +3587,13 @@ const headers = {
 let body = {
     "data": {
         "attributes": {
-            "title": "harum",
-            "description": "Vitae eum eos voluptates non.",
-            "status": 2
+            "title": "minus",
+            "description": "Ut ratione expedita qui saepe sequi reiciendis deleniti.",
+            "status": 1
         },
         "relationships": {
             "user": {
-                "id": "et"
+                "id": "totam"
             }
         }
     }
@@ -3622,10 +3726,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.title"                data-endpoint="PUTapi-v1-tickets--ticket_id-"
-               value="harum"
+               value="minus"
                data-component="body">
     <br>
-<p>Example: <code>harum</code></p>
+<p>Example: <code>minus</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3633,10 +3737,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.attributes.description"                data-endpoint="PUTapi-v1-tickets--ticket_id-"
-               value="Vitae eum eos voluptates non."
+               value="Ut ratione expedita qui saepe sequi reiciendis deleniti."
                data-component="body">
     <br>
-<p>Example: <code>Vitae eum eos voluptates non.</code></p>
+<p>Example: <code>Ut ratione expedita qui saepe sequi reiciendis deleniti.</code></p>
                     </div>
                                                                 <div style="margin-left: 28px; clear: unset;">
                         <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -3644,10 +3748,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="data.attributes.status"                data-endpoint="PUTapi-v1-tickets--ticket_id-"
-               value="2"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Example: <code>1</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li> <li><code>3</code></li> <li><code>4</code></li> <li><code>5</code></li></ul>
                     </div>
@@ -3677,10 +3781,684 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="data.relationships.user.id"                data-endpoint="PUTapi-v1-tickets--ticket_id-"
-               value="et"
+               value="totam"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>totam</code></p>
+                    </div>
+                                    </details>
+        </div>
+                                        </details>
+        </div>
+                                        </details>
+        </div>
+        </form>
+
+                <h1 id="managing-tickets">Managing tickets</h1>
+
+    
+
+                                <h2 id="managing-tickets-GETapi-v1-tickets">Get all tickets.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-tickets">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/tickets?sort=aliquam" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/tickets"
+);
+
+const params = {
+    "sort": "aliquam",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-tickets">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 45
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T05:01:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;mango&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/1&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T05:02:15.000000Z&quot;,
+                    &quot;title&quot;: &quot;mango&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/2&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 3,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T05:02:33.000000Z&quot;,
+                    &quot;title&quot;: &quot;mango&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/3&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 4,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T05:02:27.000000Z&quot;,
+                    &quot;title&quot;: &quot;mango&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/4&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 5,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;voluptates autem quis laboriosam&quot;,
+                    &quot;status&quot;: &quot;A&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/5&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 6,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T05:02:29.000000Z&quot;,
+                    &quot;title&quot;: &quot;mango&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/6&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 7,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;molestiae impedit dolorem et&quot;,
+                    &quot;status&quot;: &quot;A&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/7&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 8,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T05:02:31.000000Z&quot;,
+                    &quot;title&quot;: &quot;mango&quot;,
+                    &quot;status&quot;: &quot;1&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/8&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 9,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;nesciunt natus enim vero&quot;,
+                    &quot;status&quot;: &quot;X&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/9&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 10,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;et facilis ipsa architecto&quot;,
+                    &quot;status&quot;: &quot;H&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/10&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 11,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;neque aliquid consequatur laudantium&quot;,
+                    &quot;status&quot;: &quot;X&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/11&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 12,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;distinctio nesciunt temporibus voluptatem&quot;,
+                    &quot;status&quot;: &quot;H&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/12&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 13,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;quo assumenda rerum sit&quot;,
+                    &quot;status&quot;: &quot;A&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/13&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 14,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;atque et iusto in&quot;,
+                    &quot;status&quot;: &quot;H&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/14&quot;
+                },
+                &quot;relationships&quot;: []
+            },
+            {
+                &quot;type&quot;: &quot;ticket&quot;,
+                &quot;attributes&quot;: {
+                    &quot;id&quot;: 15,
+                    &quot;created_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2024-07-13T04:36:47.000000Z&quot;,
+                    &quot;title&quot;: &quot;sit eos omnis enim&quot;,
+                    &quot;status&quot;: &quot;H&quot;
+                },
+                &quot;links&quot;: {
+                    &quot;self&quot;: &quot;http://localhost/api/v1/tickets/15&quot;
+                },
+                &quot;relationships&quot;: []
+            }
+        ],
+        &quot;first_page_url&quot;: &quot;http://localhost/api/v1/tickets?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 8,
+        &quot;last_page_url&quot;: &quot;http://localhost/api/v1/tickets?page=8&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=4&quot;,
+                &quot;label&quot;: &quot;4&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=5&quot;,
+                &quot;label&quot;: &quot;5&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=6&quot;,
+                &quot;label&quot;: &quot;6&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=7&quot;,
+                &quot;label&quot;: &quot;7&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=8&quot;,
+                &quot;label&quot;: &quot;8&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/tickets?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;next_page_url&quot;: &quot;http://localhost/api/v1/tickets?page=2&quot;,
+        &quot;path&quot;: &quot;http://localhost/api/v1/tickets&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 15,
+        &quot;total&quot;: 110
+    },
+    &quot;status&quot;: 200
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-tickets" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-tickets"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-tickets"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-tickets" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-tickets">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-tickets" data-method="GET"
+      data-path="api/v1/tickets"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-tickets', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-tickets"
+                    onclick="tryItOut('GETapi-v1-tickets');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-tickets"
+                    onclick="cancelTryOut('GETapi-v1-tickets');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-tickets"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/tickets</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-tickets"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-tickets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-tickets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sort"                data-endpoint="GETapi-v1-tickets"
+               value="aliquam"
+               data-component="query">
+    <br>
+<p>Data field(s) to sort by. Separate by multiple fields with comma. Denote descending sort with a minus sign Example: <code>aliquam</code></p>
+            </div>
+                </form>
+
+                    <h2 id="managing-tickets-POSTapi-v1-tickets">Create a new Ticket.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Users can only create ticket for themselves. Manager can create ticket for any user</p>
+
+<span id="example-requests-POSTapi-v1-tickets">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/tickets" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"data\": {
+        \"relationships\": {
+            \"user\": {
+                \"id\": 18
+            }
+        }
+    }
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/tickets"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "data": {
+        "relationships": {
+            "user": {
+                "id": 18
+            }
+        }
+    }
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-tickets">
+</span>
+<span id="execution-results-POSTapi-v1-tickets" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-tickets"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-tickets"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-tickets" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-tickets">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-tickets" data-method="POST"
+      data-path="api/v1/tickets"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-tickets', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-tickets"
+                    onclick="tryItOut('POSTapi-v1-tickets');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-tickets"
+                    onclick="cancelTryOut('POSTapi-v1-tickets');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-tickets"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/tickets</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-tickets"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-tickets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-tickets"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>data</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>Example: <code>ducimus</code></p>
+            </summary>
+                                                <div style=" margin-left: 14px; clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>attributes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>Example: <code>modi</code></p>
+            </summary>
+                                                <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="data.attributes.title"                data-endpoint="POSTapi-v1-tickets"
+               value="No-example"
+               data-component="body">
+    <br>
+<p>Ticket's title. Example: <code>No-example</code></p>
+                    </div>
+                                                                <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="data.attributes.description"                data-endpoint="POSTapi-v1-tickets"
+               value="No-example"
+               data-component="body">
+    <br>
+<p>Ticket's description. Example: <code>No-example</code></p>
+                    </div>
+                                                                <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="data.attributes.status"                data-endpoint="POSTapi-v1-tickets"
+               value="0"
+               data-component="body">
+    <br>
+<p>Ticket's status. Example: <code>0</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li> <li><code>3</code></li> <li><code>4</code></li> <li><code>5</code></li></ul>
+                    </div>
+                                    </details>
+        </div>
+                                                                    <div style=" margin-left: 14px; clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>relationships</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style=" margin-left: 28px; clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>user</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 42px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="data.relationships.user.id"                data-endpoint="POSTapi-v1-tickets"
+               value="18"
+               data-component="body">
+    <br>
+<p>Example: <code>18</code></p>
                     </div>
                                     </details>
         </div>

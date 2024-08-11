@@ -1,0 +1,173 @@
+name: 'Managing tickets'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/tickets
+    metadata:
+      groupName: 'Managing tickets'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all tickets.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      sort:
+        name: sort
+        description: 'Data field(s) to sort by. Separate by multiple fields with comma. Denote descending sort with a minus sign'
+        required: false
+        example: aliquam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanQueryParameters:
+      sort: aliquam
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"message":"success","data":{"current_page":1,"data":[{"type":"ticket","attributes":{"id":1,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T05:01:47.000000Z","title":"mango","status":"1"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/1"},"relationships":[]},{"type":"ticket","attributes":{"id":2,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T05:02:15.000000Z","title":"mango","status":"1"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/2"},"relationships":[]},{"type":"ticket","attributes":{"id":3,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T05:02:33.000000Z","title":"mango","status":"1"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/3"},"relationships":[]},{"type":"ticket","attributes":{"id":4,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T05:02:27.000000Z","title":"mango","status":"1"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/4"},"relationships":[]},{"type":"ticket","attributes":{"id":5,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"voluptates autem quis laboriosam","status":"A"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/5"},"relationships":[]},{"type":"ticket","attributes":{"id":6,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T05:02:29.000000Z","title":"mango","status":"1"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/6"},"relationships":[]},{"type":"ticket","attributes":{"id":7,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"molestiae impedit dolorem et","status":"A"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/7"},"relationships":[]},{"type":"ticket","attributes":{"id":8,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T05:02:31.000000Z","title":"mango","status":"1"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/8"},"relationships":[]},{"type":"ticket","attributes":{"id":9,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"nesciunt natus enim vero","status":"X"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/9"},"relationships":[]},{"type":"ticket","attributes":{"id":10,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"et facilis ipsa architecto","status":"H"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/10"},"relationships":[]},{"type":"ticket","attributes":{"id":11,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"neque aliquid consequatur laudantium","status":"X"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/11"},"relationships":[]},{"type":"ticket","attributes":{"id":12,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"distinctio nesciunt temporibus voluptatem","status":"H"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/12"},"relationships":[]},{"type":"ticket","attributes":{"id":13,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"quo assumenda rerum sit","status":"A"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/13"},"relationships":[]},{"type":"ticket","attributes":{"id":14,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"atque et iusto in","status":"H"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/14"},"relationships":[]},{"type":"ticket","attributes":{"id":15,"created_at":"2024-07-13T04:36:47.000000Z","updated_at":"2024-07-13T04:36:47.000000Z","title":"sit eos omnis enim","status":"H"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/15"},"relationships":[]}],"first_page_url":"http:\/\/localhost\/api\/v1\/tickets?page=1","from":1,"last_page":8,"last_page_url":"http:\/\/localhost\/api\/v1\/tickets?page=8","links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=1","label":"1","active":true},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=2","label":"2","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=3","label":"3","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=4","label":"4","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=5","label":"5","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=6","label":"6","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=7","label":"7","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=8","label":"8","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=2","label":"Next &raquo;","active":false}],"next_page_url":"http:\/\/localhost\/api\/v1\/tickets?page=2","path":"http:\/\/localhost\/api\/v1\/tickets","per_page":15,"prev_page_url":null,"to":15,"total":110},"status":200}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '45'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 23|QNe6feVpyDNRXhvw9bF5aozlfn5x0tYyk64q9kjK069a9b5e'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/tickets
+    metadata:
+      groupName: 'Managing tickets'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new Ticket.'
+      description: 'Users can only create ticket for themselves. Manager can create ticket for any user'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      data:
+        name: data
+        description: ''
+        required: true
+        example: ducimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.attributes:
+        name: data.attributes
+        description: ''
+        required: true
+        example: modi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.attributes.title:
+        name: data.attributes.title
+        description: "Ticket's title."
+        required: true
+        example: No-example
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.attributes.description:
+        name: data.attributes.description
+        description: "Ticket's description."
+        required: true
+        example: No-example
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.attributes.status:
+        name: data.attributes.status
+        description: "Ticket's status."
+        required: true
+        example: 0
+        type: integer
+        enumValues:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+        exampleWasSpecified: false
+        custom: []
+      data.relationships.user:
+        name: data.relationships.user
+        description: ''
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.relationships:
+        name: data.relationships
+        description: ''
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      data.relationships.user.id:
+        name: data.relationships.user.id
+        description: ''
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      data:
+        relationships:
+          user:
+            id: 18
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 23|QNe6feVpyDNRXhvw9bF5aozlfn5x0tYyk64q9kjK069a9b5e'
+    controller: null
+    method: null
+    route: null
+    custom: []

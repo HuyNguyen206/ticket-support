@@ -20,7 +20,12 @@ class TicketController extends ApiController
     public string $policyClass = TicketPolicy::class;
 
     /**
-     * Display a listing of the resource.
+     * Get all tickets.
+     *
+     * @group Managing tickets
+     *
+     * @queryParam sort string Data field(s) to sort by. Separate by multiple fields with comma. Denote descending sort with a minus sign
+     * @example: filter[include] = user
      */
     public function index(Request $request, TicketFilter $ticketFilter)
     {
@@ -30,7 +35,10 @@ class TicketController extends ApiController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create a new Ticket.
+     *
+     * Users can only create ticket for themselves. Manager can create ticket for any user
+     * @group Managing tickets
      */
     public function store(StoreTicketRequest $request)
     {
